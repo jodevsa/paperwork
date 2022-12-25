@@ -116,7 +116,7 @@ export const TemplatesPage  = withAuthenticationRequired(() => {
             }}> click </button>
     <TemplatesContainer>
       {templates.map(template=>
-        <TemplateCard templateId = {template.templateId} title="wtf" previewUrl="https://www.vtexperts.com/wp-content/uploads/2016/02/VTiger-Professional-PDF-Template-Cyan2.png"/>
+        <TemplateCard templateId = {template._id} title="wtf" previewUrl="https://www.vtexperts.com/wp-content/uploads/2016/02/VTiger-Professional-PDF-Template-Cyan2.png"/>
         )}
 
 

@@ -1,7 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import PDFTemplate, {Auth0Config} from "types";
+import PDFTemplate from "types";
 import {getLink} from "../utils";
-import { browserHistory } from "react-router-dom"
 import { navigateTo } from "./app";
 
 

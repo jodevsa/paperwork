@@ -12,10 +12,9 @@ import { TopBanner } from './Banner';
 import reducers, {RootState} from './reducers';
 import { PDFViewer } from './PDFViewer';
 import {getConfig} from "./reducers/app";
-import {useAuth0} from "@auth0/auth0-react";
 import {useHistory} from "react-router-dom";
 import { loadTemplate } from './reducers/componentInteractions';
-import { withAuthenticationRequired } from '@auth0/auth0-react';
+import { withAuthenticationRequired } from './ui/helpers';
 
 const CanvasDiv = styled.div`
      width:100%;
@@ -27,10 +26,10 @@ const CanvasDiv = styled.div`
 `;
 
 export const Designer: React.FC = withAuthenticationRequired((props) => {
+  console.log(props)
     const {templateId} = props.match.params
-
+    const jwtToken = useSelector((state:RootState) => state.appSlice.jwtToken);
     const dispatch = useDispatch();
-    const { user, isAuthenticated, isLoading,  } = useAuth0();
     const history = useHistory();
 
 
@@ -42,8 +41,8 @@ export const Designer: React.FC = withAuthenticationRequired((props) => {
 
     }, [templateId])
 
-    if(!isAuthenticated && !isLoading){
-        history.push("/")
+    if(!jwtToken){
+        history.push("/login")
         return <div></div>
     }
   

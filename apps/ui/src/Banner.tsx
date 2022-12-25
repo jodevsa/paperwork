@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {BsHeartFill} from 'react-icons/bs'
 import {AppBar, Button, IconButton, makeStyles, Menu, MenuItem, Toolbar, Typography} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
-import {useAuth0} from "@auth0/auth0-react";
 import {AccountCircle} from "@material-ui/icons";
 import { RootState } from './reducers';
 import { useSelector } from 'react-redux';
@@ -47,9 +46,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 const LoginButton = () => {
-    const { loginWithRedirect } = useAuth0();
 
-    return <Button color="inherit" onClick={() => loginWithRedirect()}>Log In</Button>;
+
+    return <Button color="inherit">Log In</Button>;
 };
 
 

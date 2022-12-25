@@ -4,8 +4,8 @@ import React, {useEffect} from "react";
 import {configureStore} from "@reduxjs/toolkit";
 import reducers, {RootState} from "../reducers";
 import Routes from "../Routes";
-import {clearNavigation, getConfig} from "../reducers/app";
-import { Auth0Provider } from "@auth0/auth0-react";
+import {getConfig} from "../reducers/app";
+
 import {red} from "@material-ui/core/colors";
 import {useHistory} from "react-router-dom";
 
@@ -51,22 +51,16 @@ const App = ()=>{
     useEffect(()=>{
         dispatch(getConfig())
     },[!!appState])
-
+    /*
     if(!appState?.auth0){
         return <Spinner/>
     }
+    */
 
 
-    return <Auth0Provider
-        domain= {appState?.auth0?.domain || ""}
-        clientId= {appState?.auth0?.clientId || ""}
-        audience ="pdfmaker"
-        redirectUri = {window.location.origin+"/templates"}
-    >
-    <ThemeProvider theme={outerTheme}>
+    return <ThemeProvider theme={outerTheme}>
         <Routes />
         </ThemeProvider>
-    </Auth0Provider>
 }
 
 export default Root;

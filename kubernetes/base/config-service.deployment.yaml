@@ -17,10 +17,6 @@ spec:
       containers:
         - name: name
           env:
-            - name: AUTH0_DOMAIN
-              value: "AUTH0_DOMAIN"
-            - name: AUTH0_SECRET
-              value: "AUTH0_SECRET"
             - name: CONFIG
               value: |-
                 {

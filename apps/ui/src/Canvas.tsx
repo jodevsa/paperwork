@@ -6,7 +6,6 @@ import { Element } from './Element/Element';
 import { RootState } from './reducers';
 import { generatePreviewPDF, PDFTemplate, saveTemplate, unselectElement } from './reducers/componentInteractions';
 import { getElementIds } from './selectors';
-import {useAuth0} from "@auth0/auth0-react";
 import { PDFTemplateState } from '../../types/build';
 
 const CanvasContainer = styled.div`

@@ -96,7 +96,7 @@ export const generatePreviewPDF = createAsyncThunk(
   'template/generatePreviewPDF', async ({state}:{state:PDFTemplateState}, thunkAPI) => {
 
     const token: RootState = thunkAPI.getState().appSlice.jwtToken
-    const data = await fetch("http://localhost:8080/api/generate", { method: 'POST',
+    const data = await fetch(getLink("/api/generate"), { method: 'POST',
       body: JSON.stringify(state.template), headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
