@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pdfmaker
+  name: pdf-service
 spec: 
   template:
     spec:
       containers:
       - name: name
-        image: ghcr.io/jodevsa/paperwork/pdfmaker:main
+        image: ghcr.io/jodevsa/paperwork/pdf-service:main
         imagePullPolicy: Always

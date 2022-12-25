@@ -6,9 +6,9 @@ node common/scripts/install-run-rush.js install
 node common/scripts/install-run-rush.js build
 
 
-echo "setting up pdfmaker"
-mkdir -p ./build/pdfmaker
-node common/scripts/install-run-rush.js deploy --project=pdfmaker -t ./build/pdfmaker --overwrite
+echo "setting up pdf-service"
+mkdir -p ./build/pdf-service
+node common/scripts/install-run-rush.js deploy --project=pdf-service -t ./build/pdf-service --overwrite
 
 
 mkdir -p ./build/config-service

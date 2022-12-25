@@ -24,7 +24,7 @@ spec:
             pathType: Prefix      
             backend:
               service: 
-                name: pdfmaker
+                name: pdf-service
                 port: 
                   number: 8080
           - path: /api/config

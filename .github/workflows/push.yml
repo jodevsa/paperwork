@@ -31,25 +31,25 @@ jobs:
 
 
 
-      # build pdfmaker image
+      # build pdf-service image
 
 
 
 
-      - name: Extract metadata (tags, labels) for Dockerfile.pdfmaker
-        id: pdfmaker
+      - name: Extract metadata (tags, labels) for Dockerfile.pdf-service
+        id: pdfservice
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/pdfmaker
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/pdf-service
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          file: Dockerfile.pdfmaker
-          tags: ${{ steps.pdfmaker.outputs.tags }}
+          file: Dockerfile.pdf-service
+          tags: ${{ steps.pdfservice.outputs.tags }}
           push: true
-          labels: ${{ steps.pdfmaker.outputs.labels }}
+          labels: ${{ steps.pdfservice.outputs.labels }}
 
 
 

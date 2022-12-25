@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pdfmaker
+  name: pdf-service
 spec:
   replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: pdfmaker
+      app: pdf-service
   template:
     metadata:
       labels:
-        app: pdfmaker
+        app: pdf-service
 
     spec:
       containers:

@@ -395,8 +395,8 @@
       "projectFolder": "apps/ui"
     },
     {
-      "packageName": "pdfmaker",
-      "projectFolder": "apps/pdfmaker"
+      "packageName": "pdf-service",
+      "projectFolder": "apps/pdf-service"
     },
     {
       "packageName": "types",
