@@ -4,11 +4,11 @@ ENV NODE_ENV=production
 WORKDIR /build
 RUN pwd
 
-COPY ./build/config-service .
+COPY ./build/user-service .
 
 
 RUN ls
 
 EXPOSE 8080
 
-CMD [ "node", "./apps/config-service/build/index.js" ]
+CMD [ "node", "./apps/user-service/build/index.js" ]
