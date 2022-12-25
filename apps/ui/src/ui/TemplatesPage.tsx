@@ -21,7 +21,7 @@ import {Provider, useDispatch, useSelector} from 'react-redux';
 import {useAuth0} from "@auth0/auth0-react";
 import { RootState } from '../reducers';
 import {  navigateTo } from '../reducers/app';
-import { withAuthenticationRequired } from '@auth0/auth0-react';
+import { withAuthenticationRequired } from './helpers';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -90,6 +90,10 @@ const useStyles = makeStyles((theme) => ({
       </Card>
     );
   }
+
+
+
+
 export const TemplatesPage  = withAuthenticationRequired(() => {
   
   const dispatch = useDispatch()

@@ -15,10 +15,10 @@ import { RootState } from "./reducers";
 import { resetTemplatePage } from "./reducers/componentInteractions";
 import {useHistory} from "react-router-dom";
 import { resetTemplatesPage } from "./reducers/TemplatesPageReducer";
-import {useAuth0} from "@auth0/auth0-react";
 
 import Loader from "react-loader-spinner";
 import Spinner from "./Spinner";
+import { LoginPage } from "./ui/LoginPage";
 
 const AppContainer = styled.div`
         width: 100vw;
@@ -57,26 +57,10 @@ const Navigate = ()=>{
 const Routes =  ()=>{
     const dispatch = useDispatch()
     const history = useHistory();
-    const { getAccessTokenSilently, isLoading, isAuthenticated} = useAuth0()
-    const accessToken = useSelector((state:RootState) => state.appSlice.accessToken);
-    
 
-    useEffect(()=>{
-
-        (async ()=>{
-            if(isAuthenticated){
-            const token = await getAccessTokenSilently()
-    
-            dispatch(updateAccessToken(token))
-            }
-        })();
-
-    },[isAuthenticated, isLoading])
+    const jwtToken = useSelector((state:RootState) => state.appSlice.jwtToken);
 
 
-    if(isLoading || (isAuthenticated && !accessToken)){
-        return <Spinner/>
-    }
 
     return <>
         <AppContainer>
@@ -84,6 +68,13 @@ const Routes =  ()=>{
         <Router>
         <Navigate/>
         <Switch>
+
+        <Route path="/login" render={()=>{
+
+
+return  <LoginPage/>
+}}/>
+
         <Route path="/templates" render={()=>{
 
             dispatch(resetTemplatePage())

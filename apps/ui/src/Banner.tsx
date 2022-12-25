@@ -5,6 +5,8 @@ import {AppBar, Button, IconButton, makeStyles, Menu, MenuItem, Toolbar, Typogra
 import MenuIcon from '@material-ui/icons/Menu';
 import {useAuth0} from "@auth0/auth0-react";
 import {AccountCircle} from "@material-ui/icons";
+import { RootState } from './reducers';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
     display: flex;
@@ -52,7 +54,7 @@ const LoginButton = () => {
 
 
 const UserButton = () => {
-    const { logout, user, isAuthenticated } = useAuth0();
+    const jwtToken = useSelector((state:RootState) => state.appSlice.jwtToken);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -62,7 +64,7 @@ const UserButton = () => {
     };
 
     const handleLogout = () => {
-        logout({ returnTo: window.location.origin })
+        //logout({ returnTo: window.location.origin })
 
     };
 
@@ -70,7 +72,7 @@ const UserButton = () => {
         setAnchorEl(null);
     };
 
-    return isAuthenticated && <div>
+    return jwtToken && <div>
         <IconButton
             aria-label="account of current user"
             aria-controls="menu-appbar"
@@ -103,7 +105,7 @@ const UserButton = () => {
 
 export const TopBanner: React.FC = () => {
     const classes = useStyles();
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const jwtToken = useSelector((state:RootState) => state.appSlice.jwtToken);
 
         return (<AppBar position="static" className = {classes.appbar}>
             <Toolbar>
@@ -113,8 +115,8 @@ export const TopBanner: React.FC = () => {
                 <Typography variant="h6" className={classes.title}>
                     PDF template designer
                 </Typography>
-                { isAuthenticated && <UserButton/> }
-                { !isAuthenticated && <LoginButton/> }
+                { jwtToken && <UserButton/> }
+                { !jwtToken && <LoginButton/> }
             </Toolbar>
         </AppBar>)
 }

@@ -5,14 +5,29 @@ import {getLink} from "../utils";
 export type AppState = {
     accessToken: string | null,
     auth0: Auth0Config | null,
+    jwtToken: string | null,
     currentPath: string | null
 }
 
-const initialState = {currentPath: null, auth0: null} as AppState
+const initialState = {currentPath: null, auth0: null, jwtToken: null} as AppState
 
 export const getConfig = createAsyncThunk(
     'template/fetchConfig', async (thunkAPI) => {
         const data = await fetch(getLink("/api/config"), { method: 'GET', headers: {
+                'Content-Type': 'application/json'
+            } });
+
+        return await data.json()
+    }
+);
+
+
+export const login = createAsyncThunk(
+    'user/login', async ({email, password}:{email:string, password:string}, thunkAPI) => {
+        const data = await fetch(getLink("/api/browser/login"), { method: 'POST', 
+        
+        body: JSON.stringify({email, password}),
+        headers: {
                 'Content-Type': 'application/json'
             } });
 
@@ -35,6 +50,12 @@ const appSlice = createSlice({
     extraReducers: (builder)=>{
         builder.addCase(getConfig.fulfilled, (state, action) => {
             state.auth0 = action.payload;
+        });
+        builder.addCase(login.fulfilled, (state, action) => {
+            state.jwtToken = action.payload.token
+            if(state.jwtToken){
+                state.currentPath = "/templates"
+            }
         });
     }
 })

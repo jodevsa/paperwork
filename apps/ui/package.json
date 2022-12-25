@@ -65,8 +65,8 @@
         "use-onclickoutside": "^0.3.1"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "startDev": "PRINT_MODE=true REACT_APP_BASE_URL='https://dev.pdfmaker.local' react-scripts start",
+        "start": "PRINT_MODE=true REACT_APP_BASE_URL='https://localhost' react-scripts start",
+        "startDev": "PRINT_MODE=true REACT_APP_BASE_URL='https://localhost' react-scripts start",
         "startPp": "REACT_APP_BASE_URL='https://pp.pdfmaker.local' react-scripts start",
         "build": "REACT_APP_NETLIFY=true react-scripts build",
         "test": "react-scripts test",
