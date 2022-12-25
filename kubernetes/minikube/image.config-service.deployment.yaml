@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-service
+spec:
+  template:
+    spec:
+      containers:
+      - name: name
+        image: ghcr.io/jodevsa/paperwork/configservice:main
+        imagePullPolicy: Always

@@ -1,0 +1,37 @@
+{
+  "name": "pdfmaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf ./build  && tsc",
+    "start": "npm run build && node ./build/index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "~4.3.4",
+    "@types/pdfkit": "~0.11.0",
+    "@types/concat-stream": "~1.6.0",
+    "@types/request": "~2.48.5",
+    "types": "~1.0.0",
+    "canvas": "~2.8.0",
+    "pdfjs-dist": "~2.9.359",
+    "@types/jest": "~27.0.1",
+    "ts-jest": "~27.0.4",
+    "jest-image-snapshot": "~4.5.1"
+  },
+  "dependencies": {
+    "concat-stream": "~2.0.0",
+    "lodash": "~4.17.21",
+    "parse5": "~6.0.1",
+    "pdfkit": "~0.12.1",
+    "request": "~2.88.2",
+    "undici": "~4.0.0",
+    "toolchain": "~1.0.0",
+    "service-core": "~1.0.0",
+    "dynamoose": "~2.7.3",
+    "uuid": "~8.3.2"
+  }
+}

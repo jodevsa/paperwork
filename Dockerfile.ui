@@ -1,0 +1,15 @@
+FROM node:16.3.0
+ENV NODE_ENV=production
+
+WORKDIR /build
+RUN pwd
+
+COPY ./apps/ui/build/ .
+
+
+RUN npm install serve -g
+
+
+EXPOSE 8080
+
+CMD [ "serve", "-s", ".", "-l", "tcp://0.0.0.0:8080"]

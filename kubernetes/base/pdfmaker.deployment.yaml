@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdfmaker
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pdfmaker
+  template:
+    metadata:
+      labels:
+        app: pdfmaker
+
+    spec:
+      containers:
+      - name: name
+        env:
+          - name: AWS_REGION
+            value: "AWS_REGION"
+        ports:
+          - containerPort: 8080 

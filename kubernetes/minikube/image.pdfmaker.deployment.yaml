@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdfmaker
+spec: 
+  template:
+    spec:
+      containers:
+      - name: name
+        image: ghcr.io/jodevsa/paperwork/pdfmaker:main
+        imagePullPolicy: Always

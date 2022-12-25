@@ -1,0 +1,23 @@
+{
+  "name": "service-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "rm -rf ./build  && tsc && cp package.json ./build/",
+    "start": "npm run build && node ./build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "~4.3.5",
+    "toolchain": "~1.0.0"
+  },
+  "dependencies": {
+    "fastify": "~4.10.2",
+    "dynamoose": "~2.7.3",
+    "@fastify/jwt": "~6.5.0",
+    "@fastify/cors": "~8.0.0"
+  }
+}
