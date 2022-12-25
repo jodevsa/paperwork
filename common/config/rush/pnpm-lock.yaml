@@ -5,6 +5,7 @@ specifiers:
   '@createnextapp/react-barcode': ^1.1.1
   '@fastify/cors': ~8.0.0
   '@fastify/jwt': ~6.5.0
+  '@fastify/type-provider-typebox': ~2.4.0
   '@material-ui/core': 4.11.4
   '@material-ui/icons': ^4.11.2
   '@react-pdf/pdfkit': ^2.0.8
@@ -98,6 +99,7 @@ dependencies:
   '@createnextapp/react-barcode': 1.1.1_react-dom@16.14.0+react@16.14.0
   '@fastify/cors': 8.0.0
   '@fastify/jwt': 6.5.0
+  '@fastify/type-provider-typebox': 2.4.0_f05943e1c6f4e4464f8d9c45352b602d
   '@material-ui/core': 4.11.4_fc912283d399fd7bb063d99a41408c7a
   '@material-ui/icons': 4.11.2_d8917c30465b3c76af6e5922cb31e848
   '@react-pdf/pdfkit': 2.0.10
@@ -2580,6 +2582,13 @@ packages:
       ajv: 8.11.2
       ajv-formats: 2.1.1
       fast-uri: 2.2.0
+    dev: false
+
+  /@fastify/cookie/8.3.0:
+    resolution: {integrity: sha512-P9hY9GO11L20TnZ33XN3i0bt+3x0zaT7S0ohAzWO950E9PB2xnNhLYzPFJIGFi5AVN0yr5+/iZhWxeYvR6KCzg==}
+    dependencies:
+      cookie: 0.5.0
+      fastify-plugin: 4.4.0
     dev: false
 
   /@fastify/cors/8.0.0:
@@ -16981,10 +16990,11 @@ packages:
     dev: false
 
   file:projects/service-core.tgz:
-    resolution: {integrity: sha512-J2uqCdnelxt/cjbvHKeiYD5FJhL3L9tqncxm9QkyJqQIF195Op2cwggLcU2LdGjDKQEENj8+2mFHYgSyBSq+8Q==, tarball: file:projects/service-core.tgz}
+    resolution: {integrity: sha512-IU6wD4fmM8jrQasEB5Sh5e5AKC0Q/WeoXceWVoUz5NYEXxTXNHf8/AFdY6sg1vVtOj8fkVt2hXvi4zr4FGIc0w==, tarball: file:projects/service-core.tgz}
     name: '@rush-temp/service-core'
     version: 0.0.0
     dependencies:
+      '@fastify/cookie': 8.3.0
       '@fastify/cors': 8.0.0
       '@fastify/jwt': 6.5.0
       '@fastify/passport': 2.2.0

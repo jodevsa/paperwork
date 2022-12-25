@@ -1,4 +1,4 @@
-import {fastifyServer, mongooseConnect} from "service-core";
+import {fastifyServer, mongooseConnect, JWT_COOKIE_TOKEN} from "service-core";
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 import { Static, Type } from '@sinclair/typebox'
@@ -37,6 +37,13 @@ server.post<{
 
     const token = server.jwt.sign({_id:exists._id, email, password})
     reply
+ .setCookie(JWT_COOKIE_TOKEN, token, {
+        domain: 'localhost',
+        path: '/',
+        secure: true, // send cookie over HTTPS only
+        httpOnly: true,
+        sameSite: true // alternative CSRF protection
+      })
         .code(200)
         .header('Content-Type', 'application/json')
         .send({token})

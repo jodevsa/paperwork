@@ -18,6 +18,7 @@
     "fastify": "~4.10.2",
     "@fastify/jwt": "~6.5.0",
     "@fastify/cors": "~8.0.0",
-    "mongoose": "~6.8.1"
+    "mongoose": "~6.8.1",
+    "@fastify/cookie": "~8.3.0"
   }
 }
