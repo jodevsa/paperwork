@@ -1,0 +1,26 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf ./build/ && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && MONGODB_URL=mongodb://root:password@localhost:27017/ JWT_PUBLIC_KEY='PUBLIC' JWT_PRIVATE_KEY='PRIVATE' node ./build/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "~4.3.5"
+  },
+  "dependencies": {
+    "toolchain": "~1.0.0",
+    "@types/node": "~16.4.13",
+    "types": "~1.0.0",
+    "service-core": "~1.0.0",
+    "fastify": "~4.10.2",
+    "mongoose": "~6.8.1",
+    "@sinclair/typebox": "~0.25.16",
+    "@fastify/type-provider-typebox": "~2.4.0"
+  }
+}

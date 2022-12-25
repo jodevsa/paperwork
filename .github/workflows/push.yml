@@ -85,7 +85,7 @@ jobs:
         id: configservice
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/configservice
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/config-service
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -95,3 +95,23 @@ jobs:
           tags: ${{ steps.configservice.outputs.tags }}
           push: true
           labels: ${{ steps.configservice.outputs.labels }}
+
+
+      # build user service image
+
+
+
+      - name: Extract metadata (tags, labels) for Dockerfile.user-service
+        id: userservice
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/user-service
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          file: Dockerfile.user-service
+          tags: ${{ steps.userservice.outputs.tags }}
+          push: true
+          labels: ${{ steps.userservice.outputs.labels }}

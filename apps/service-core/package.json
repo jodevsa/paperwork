@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "fastify": "~4.10.2",
-    "dynamoose": "~2.7.3",
     "@fastify/jwt": "~6.5.0",
-    "@fastify/cors": "~8.0.0"
+    "@fastify/cors": "~8.0.0",
+    "mongoose": "~6.8.1"
   }
 }

@@ -413,6 +413,10 @@
     {
       "packageName": "service-core",
       "projectFolder": "apps/service-core"
+    },
+    {
+      "packageName": "user-service",
+      "projectFolder": "apps/user-service"
     }
     // {
     //   /**

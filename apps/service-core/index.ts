@@ -1,6 +1,6 @@
 import Fastify, { FastifyInstance } from 'fastify'
 import cors from '@fastify/cors'
-import dynamoose from "dynamoose"
+import mongoose from 'mongoose'
 import fastifyJwt from '@fastify/jwt'
 
 
@@ -61,30 +61,19 @@ export function fastifyServer(config: Config = {}): FastifyInstance {
 }
 
 
-let ddb;
+let db;
 
-export function getDynamoDBInstance() {
-    if(!ddb) {
-        const accessKeyId = process.env.AWS_ACCESS_KEY_ID
-        const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
-        const region = process.env.AWS_REGION
+export async function mongooseConnect() {
+    if(!db) {
+        const url = process.env.MONGODB_URL
 
-        if (!accessKeyId) {
-            throw new Error("mandatory AWS_ACCESS_KEY_ID env variable is not set")
-        }
-        if (!secretAccessKey) {
-            throw new Error("mandatory AWS_SECRET_ACCESS_KEY env variable is not set")
-        }
-        if (!region) {
-            throw new Error("mandatory AWS_REGION env variable is not set")
+
+        if (!url) {
+            throw new Error("mandatory MONGODB_URL env variable is not set")
         }
 
-        ddb = new dynamoose.aws.sdk.DynamoDB({
-            accessKeyId,
-            secretAccessKey,
-            region
-        });
+        db = await mongoose.connect(url);
     }
 
-    return ddb
+    return db
 }

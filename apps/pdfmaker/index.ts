@@ -1,19 +1,11 @@
-import request from 'request'
 
-import dynamoose from "dynamoose"
-import concat from 'concat-stream';
-import {fastifyServer, getDynamoDBInstance} from "service-core";
+import {fastifyServer, mongooseConnect} from "service-core";
 import createPdf from "./createPdf";
 import TemplateDao from './TemplateDao';
 const server = fastifyServer()
 import PDFTemplate from "types";
 import { v4 as uuidv4 } from 'uuid';
 import PDFDocument from "pdfkit";
-
-
-// setup dynamoose
-dynamoose.aws.ddb.set(getDynamoDBInstance())
-
 
 
 const templateDao = new TemplateDao()

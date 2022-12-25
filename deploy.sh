@@ -14,3 +14,9 @@ node common/scripts/install-run-rush.js deploy --project=pdfmaker -t ./build/pdf
 mkdir -p ./build/config-service
 echo "setting up config-service"
 node common/scripts/install-run-rush.js deploy --project=config-service -t ./build/config-service --overwrite
+
+
+
+mkdir -p ./build/user-service
+echo "setting up user-service"
+node common/scripts/install-run-rush.js deploy --project=user-service -t ./build/user-service --overwrite
