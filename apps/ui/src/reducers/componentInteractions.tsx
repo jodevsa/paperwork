@@ -95,7 +95,7 @@ function getAlignmentVisualLines(selectedElementPoints: Point[], otherElementsPo
 export const generatePreviewPDF = createAsyncThunk(
   'template/generatePreviewPDF', async ({state}:{state:PDFTemplateState}, thunkAPI) => {
 
-    const token: RootState = thunkAPI.getState().appSlice.accessToken
+    const token: RootState = thunkAPI.getState().appSlice.jwtToken
     const data = await fetch("http://localhost:8080/api/generate", { method: 'POST',
       body: JSON.stringify(state.template), headers: {
         Authorization: `Bearer ${token}`,
@@ -109,7 +109,7 @@ export const generatePreviewPDF = createAsyncThunk(
 export const loadTemplate = createAsyncThunk(
   'template/loadFromServer', async ({templateId}:{templateId:string}, thunkAPI) => {
     
-    const token: RootState = thunkAPI.getState().appSlice.accessToken
+    const token: RootState = thunkAPI.getState().appSlice.jwtToken
     const data = await fetch(getLink(`/api/template/${templateId}`), { method: 'GET',
        headers: {
         Authorization: `Bearer ${token}`,

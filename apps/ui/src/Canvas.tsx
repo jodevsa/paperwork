@@ -34,7 +34,7 @@ const generatePDF = debounce((dispatch, state:PDFTemplateState) => {
 const Canvas: React.FC = ({templateId}: {templateId: string}) => {
   const elementIds = useSelector((state:RootState) => getElementIds(state, 0));
   const state = useSelector((state:RootState) => state.templateSlice);
-  const token = useSelector((state:RootState) => state.appSlice.accessToken);
+  const token = useSelector((state:RootState) => state.appSlice.jwtToken);
   const template = useSelector((state:RootState) => state.templateSlice.template);
 
   const dispatch = useDispatch();

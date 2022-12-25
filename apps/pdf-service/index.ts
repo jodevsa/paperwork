@@ -24,7 +24,7 @@ server.post('/api/generate',async (request, reply) => {
 
 server.post('/api/template/create',async (request, reply) => {
   // @ts-ignore
-  const userId = request.user?.sub?.split("|")[1]
+  const userId = request.user._id
   const templateId = uuidv4();
   await TemplateDao.insertTemplate({
     userId,
@@ -41,9 +41,8 @@ server.get('/api/template/:templateId',async (request, reply) => {
   // @ts-ignore
   const templateId = request.params?.templateId
 
-  const user = request.user
   // @ts-ignore
-  const userId = request.user?.sub?.split("|")[1]
+  const userId = request.user._id
 
   const template = await TemplateDao.getTemplate({userId, templateId})
 
@@ -54,9 +53,8 @@ server.get('/api/template/:templateId',async (request, reply) => {
 
 
 server.get('/api/templates', async (request, reply) => {
-  const user = request.user
   // @ts-ignore
-  const userId = request.user?.sub?.split("|")[1]
+  const userId = request.user._id
 
   const templates = await TemplateDao.getTemplatesByUserId({userId})
   
@@ -70,7 +68,7 @@ server.put('/api/template/:templateId',async (request, reply) => {
   const templateId = request.params?.templateId
 
   // @ts-ignore
-  const userId = request.user?.sub?.split("|")[1]
+  const userId = request.user._id
 
   await TemplateDao.updateTemplate({userId, templateId, template: JSON.stringify(template)})
 

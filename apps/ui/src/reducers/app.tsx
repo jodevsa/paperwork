@@ -3,7 +3,6 @@ import {Auth0Config} from "types";
 import {getLink} from "../utils";
 
 export type AppState = {
-    accessToken: string | null,
     auth0: Auth0Config | null,
     jwtToken: string | null,
     currentPath: string | null
@@ -40,9 +39,6 @@ const appSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
-        updateAccessToken(state, action: PayloadAction<string>){
-            state.accessToken = action.payload
-        },
         navigateTo(state, action: PayloadAction<string>){
             state.currentPath = action.payload
         }
@@ -65,7 +61,6 @@ export default appSlice.reducer;
 
 
 export const {
-    navigateTo,
-    updateAccessToken
+    navigateTo
   } = appSlice.actions;
   

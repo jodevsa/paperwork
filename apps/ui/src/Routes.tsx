@@ -10,7 +10,7 @@ import {TopBanner} from "./Banner";
 import styled from "styled-components";
 import { TemplatesPage } from "./ui/TemplatesPage";
 import {Provider,useDispatch, useSelector} from 'react-redux';
-import { navigateTo, updateAccessToken } from "./reducers/app";
+import { navigateTo } from "./reducers/app";
 import { RootState } from "./reducers";
 import { resetTemplatePage } from "./reducers/componentInteractions";
 import {useHistory} from "react-router-dom";

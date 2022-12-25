@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf ./build/ && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && MONGODB_URL=mongodb://root:password@localhost:27017/ JWT_PUBLIC_KEY='PUBLIC' JWT_PRIVATE_KEY='PRIVATE' node ./build/index.js"
+    "start": "npm run build && MONGODB_URL=mongodb://root:password@localhost:27017/ JWT_PUBLIC_KEY='TEST@PUBLIC@KEY' JWT_PRIVATE_KEY='TEST@PRIVATE@KEY' node ./build/index.js"
   },
   "author": "",
   "license": "ISC",

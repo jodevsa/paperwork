@@ -15,7 +15,7 @@ export const retrieveTemplates = createAsyncThunk(
     'TemplatesPageReducer/retrieveTemplates', async (_, thunkAPI) => {
         console.log("woot..")
 
-        const token = thunkAPI.getState().appSlice.accessToken
+        const token = thunkAPI.getState().appSlice.jwtToken
         const data = await fetch(getLink("/api/templates"), { method: 'GET',
         headers: {
                 'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export const {resetTemplatesPage} = slice.actions
 export const createTemplate = createAsyncThunk(
     'TemplatesPageReducer/createTemplate', async (_, thunkAPI) => {
 
-        const token = thunkAPI.getState().appSlice.accessToken
+        const token = thunkAPI.getState().appSlice.jwtToken
         const data = await fetch(getLink("/api/template/create"), { method: 'POST',
         
         body: JSON.stringify({}),

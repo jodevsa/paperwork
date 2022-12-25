@@ -37,13 +37,6 @@ server.post<{
 
     const token = server.jwt.sign({_id:exists._id, email, password})
     reply
- .setCookie(JWT_COOKIE_TOKEN, token, {
-        domain: 'localhost',
-        path: '/',
-        secure: true, // send cookie over HTTPS only
-        httpOnly: true,
-        sameSite: true // alternative CSRF protection
-      })
         .code(200)
         .header('Content-Type', 'application/json')
         .send({token})
