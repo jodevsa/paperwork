@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./build  && tsc",
-    "start": "npm run build && node ./build/index.js",
+    "start": "npm run build && MONGODB_URL=mongodb://root:password@localhost:27017/ JWT_PUBLIC_KEY='TEST@PUBLIC@KEY' JWT_PRIVATE_KEY='TEST@PRIVATE@KEY' node ./build/index.js",
     "test": "jest"
   },
   "author": "",
@@ -32,6 +32,7 @@
     "toolchain": "~1.0.0",
     "service-core": "~1.0.0",
     "dynamoose": "~2.7.3",
-    "uuid": "~8.3.2"
+    "uuid": "~8.3.2",
+    "mongoose": "~6.8.1"
   }
 }

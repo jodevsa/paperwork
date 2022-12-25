@@ -15528,7 +15528,7 @@ packages:
     dev: false
 
   file:projects/pdf-service.tgz:
-    resolution: {integrity: sha512-pMLCZVL+cWyt7N6BMIwL7RMThbwKxRrPtJc5rbCXbf7vPLZWvgA9li/cTOU2RNK/tjKr5BNhn31XepCiBIH5FQ==, tarball: file:projects/pdf-service.tgz}
+    resolution: {integrity: sha512-o8cB57RSEWsYXeeqOJTHKC0FRAGBDps89qgDWZSl2YJnrbMf+Herust/EKH3TEDyY71AsyVNIS+aop/mLaH0Zw==, tarball: file:projects/pdf-service.tgz}
     name: '@rush-temp/pdf-service'
     version: 0.0.0
     dependencies:
@@ -15541,6 +15541,7 @@ packages:
       dynamoose: 2.7.3
       jest-image-snapshot: 4.5.1
       lodash: 4.17.21
+      mongoose: 6.8.1
       parse5: 6.0.1
       pdfjs-dist: 2.9.359
       pdfkit: 0.12.1
@@ -15551,6 +15552,7 @@ packages:
       uuid: 8.3.2
     transitivePeerDependencies:
       - '@babel/core'
+      - aws-crt
       - babel-jest
       - jest
       - supports-color
