@@ -4,11 +4,11 @@ ENV NODE_ENV=production
 WORKDIR /build
 RUN pwd
 
-COPY ./build/pdfmaker .
+COPY ./build/pdf-service .
 
 
 RUN ls
 
 EXPOSE 8080
 
-CMD [ "node", "./apps/pdfmaker/build/index.js" ]
+CMD [ "node", "./apps/pdf-service/build/index.js" ]
