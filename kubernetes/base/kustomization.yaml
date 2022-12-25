@@ -6,6 +6,8 @@ resources:
   - pdfmaker.svc.yaml
   - config-service.deployment.yaml
   - config-service.svc.yaml
+  - user-service.deployment.yaml
+  - user-service.svc.yaml
   - ui.deployment.yaml
   - ui.svc.yaml
   - ingress.yaml

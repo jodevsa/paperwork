@@ -14,6 +14,8 @@ patchesStrategicMerge:
 - env.pdfmaker.deployment.yaml
 - image.config-service.deployment.yaml
 - env.config-service.deployment.yaml
+- image.user-service.deployment.yaml
+- env.user-service.deployment.yaml
 - image.ui.deployment.yaml
 
 
